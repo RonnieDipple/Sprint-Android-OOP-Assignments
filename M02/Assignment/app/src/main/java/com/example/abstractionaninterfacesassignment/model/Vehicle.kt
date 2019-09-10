@@ -1,17 +1,22 @@
 package com.example.abstractionaninterfacesassignment.model
 
-abstract class Vehicle(val id: String, val weight: Int, val favorite: Boolean) {
-    abstract fun fly(): String
+import java.io.Serializable
+
+abstract class Vehicle(val id: String, val weight: Int = 2, val favorite: Boolean){
+
+    abstract fun travel(): String
+
+
 }
 
 interface AirTravel{
-    abstract fun fly(): String
+    fun fly(): String
 }
 
 interface WaterTravel{
-    abstract fun sail(): String
+     fun sail(): String
 }
 
 interface GroundTravel{
-    abstract fun drive(): String
+     fun drive(): String
 }
