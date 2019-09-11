@@ -6,7 +6,7 @@ class Motorbike(id: String, weight: Int, favorite: Boolean): Vehicle(id, weight,
     }
 
     override fun drive(): String {
-        return "The $id goes fast of two wheels"
+        return "The $id goes fast on two wheels"
     }
 
 

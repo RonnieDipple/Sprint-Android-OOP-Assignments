@@ -1,6 +1,6 @@
 package com.example.abstractionaninterfacesassignment.model
 
-class Delorean (id: String = "Delorean", weight: Int, favorite: Boolean): Vehicle(id, weight, favorite), GroundTravel, AirTravel {
+class Delorean (id: String = "Delorean", weight: Int, favorite: Boolean = true): Vehicle(id, weight, favorite), GroundTravel, AirTravel {
     private var isFav: String = ""
     override fun fly(): String {
         isFav = "Most Favorite Vehicle"
