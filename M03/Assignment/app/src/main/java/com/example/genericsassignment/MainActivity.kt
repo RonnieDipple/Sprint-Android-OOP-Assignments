@@ -3,10 +3,7 @@ package com.example.genericsassignment
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import io.reactivex.Observable
-import okhttp3.Request
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -136,8 +133,27 @@ class MainActivity : AppCompatActivity() {
      1. Enforce restricted types for a class to related types of objects.
      2. To finish task 6, after task 5, refactor class Phone so that it can accept two types of CellularService
      like TMobile and Verizon.*/
-
+       Ronnies alternative solution to task 6
     class Phone<CellularService>(TMobile: CellularService, Verizon: CellularService)*/
+        /* another solution to task 6 that I prefer
+        open class CellularService(val id: String)
+
+    open class Person()
+    open class Actor(open val id: String) : Person()
+    data class TomCruise(override var id: String, val misson: String) : Actor(id)
+    data class BradPit(override var id: String, val fightClub: String) : Actor(id)
+
+    class Tmobile(id: String) : CellularService(id)
+    class Verizon(id: String) : CellularService(id)
+    class Phone<T : CellularService>() {
+        fun ringRing(T: CellularService) {
+
+
+        }
+    }
+         */
+
+
 
 
         /*### Task 9
