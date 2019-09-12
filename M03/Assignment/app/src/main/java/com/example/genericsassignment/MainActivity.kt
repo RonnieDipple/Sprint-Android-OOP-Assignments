@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         //Steps
         //
         //1. Create a function that returns a certain type
-        //2. Expose this function to another class which can then directly call this function and retrive the object
+        //2. Expose this function to another class which can then directly call this function and retrieve the object
         //   returned by the function
 
         /*val myCar = Car("Test")//creates a version of the car class which can be found below
@@ -145,9 +145,9 @@ class MainActivity : AppCompatActivity() {
     Steps
 
     1. Create a dummy network API like the one in the guided project to return four movies with custom attributes such as
-   year of release, title, language, imdb rating (feel free to be creative here!, you will need to
-   create a data class for Movie to start this task)
-    2. Make a call to this NetworkAPI to fetch the movie data and then observe the response and print it to the console. */
+        year of release, title, language, imdb rating (feel free to be creative here!, you will need to
+        create a data class for Movie to start this task)
+        2. Make a call to this NetworkAPI to fetch the movie data and then observe the response and print it to the console. */
 
 
 
@@ -158,25 +158,50 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        val observable = FakeMovieApi.getMovieList()
+       /* val observable = FakeMovieApi.getMovieList()
+        val observable2 = FakerMovieApi.getMovieList()*/
 
 
-        println(" ${observable.blockingFirst()}")
+        //Ronnie's alternative way of doing Task 9
+       // println(" ${observable.blockingFirst()}")
+
+
+      FakerMovieApi.getMovieList().subscribe { println(it) }
 
     }
 
 }
 
+/*
+//Ronnie's alternative way of doing Task 9
 class FakeMovieApi {
 
     companion object {
         fun getMovieList(): Observable<List<Movie>> {
-            val movie = Movie("Back to the future 1", "Science fiction", 1.56f)
-            val movie2 = Movie("Back to the future 2", "Science fiction", 1.48f)
-            val movie3 = Movie("Back to the future 3", "Science fiction", 1.58f)
-            val movie4 = Movie("Total Recall", "Science fiction", 1.53f)
+            val movie = Movie(" Back to the future 1 ", " Science fiction ",  1.56f)
+            val movie2 = Movie(" Back to the future 2 ", " Science fiction ", 1.48f)
+            val movie3 = Movie(" Back to the future 3 ", " Science fiction " , 1.58f)
+            val movie4 = Movie(" Total Recall ", "Science fiction", 1.53f)
             return Observable.just(listOf(movie, movie2, movie3, movie4))
 
         }
     }
+}*/
+
+
+class FakerMovieApi {
+
+    companion object {
+        fun getMovieList(): Observable<List<Movie>>{
+            return Observable.just(
+                listOf<Movie>(Movie(" Back to the future 1 ", " Science fiction ",  1.56f),
+                    Movie(" Back to the future 2 ", " Science fiction ", 1.48f),
+                    Movie(" Back to the future 3 ", " Science fiction " , 1.58f),
+                    Movie(" Total Recall ", "Science fiction", 1.53f)
+                )
+            )
+
+        }
+    }
 }
+
